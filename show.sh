@@ -11,7 +11,7 @@ EXECUTABLE="./build/lifelong"
 PROBLEM_FILE="./example_problems/random.domain/random_32_32_20_100.json"
 MAP_FILE="./example_problems/random.domain/maps/random-32-32-20.map"
 PLAN_FILE="test.json"
-VISUALIZER="PlanViz/script/run.py"
+VISUALIZER="planviz/script/run.py"
 
 # --- 运行前检查 ---
 # 确保所需的文件和可执行文件存在。
