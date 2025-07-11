@@ -46,9 +46,6 @@ if [ ! -f "$PLAN_FILE" ]; then
     exit 1
 fi
 
-# 使用 Python 脚本可视化计划。
-echo "正在可视化计划..."
-python3 "$VISUALIZER" --map "$MAP_FILE" --plan "$PLAN_FILE" --grid --aid --tid
 
 
 echo "完成。"
