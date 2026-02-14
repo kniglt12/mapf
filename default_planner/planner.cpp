@@ -4,6 +4,7 @@
 #include "pibt.h"
 #include "flow.h"
 #include "const.h"
+#include "RHCR_Window.h"
 
 
 namespace DefaultPlanner{
@@ -22,6 +23,7 @@ namespace DefaultPlanner{
     std::vector<bool> require_guide_path;
     std::vector<int> dummy_goals;
     TrajLNS trajLNS;
+    RHCR_Framework rhcr(15, 5); // Window size 15, horizon 5
     std::mt19937 mt1;
 
     /**
@@ -55,6 +57,7 @@ namespace DefaultPlanner{
 
             new (&trajLNS) TrajLNS(env, global_heuristictable, global_neighbors);
             trajLNS.init_mem();
+            rhcr.init(env->num_of_agents);
 
             //assign intial priority to each agent
             std::shuffle(ids.begin(), ids.end(), mt1);
@@ -100,6 +103,9 @@ namespace DefaultPlanner{
         // data sturcture for record the previous decision of each agent
         prev_decision.clear();
         prev_decision.resize(env->map.size(), -1);
+
+        // run rhcr framework window resolution
+        rhcr.step(env->curr_timestep, env->num_of_agents);
 
         // update the status of each agent and prepare for planning
         int count = 0;

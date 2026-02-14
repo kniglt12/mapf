@@ -6,6 +6,7 @@
 #include "search_node.h"
 #include "heap.h"
 #include "heuristics.h"
+#include "ALNS_Adaptive.h"
 #include <iostream>
 
 #include <set>
@@ -72,6 +73,8 @@ class TrajLNS{
     int traj_inited = 0;
     int dist2path_inited = 0;
     int soc = 0;
+
+    ALNSAdaptiveMechanim alns;
 
     MemoryPool mem;
 
