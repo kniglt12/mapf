@@ -25,6 +25,7 @@ public:
     void log_fatal(std::string input, int timestep);
     void log_warning(std::string input);
     void log_warning(std::string input, int timestep);
+    void log_rhcr_event(std::string event);
     void flush();
 private:
     logging::core_ptr core;

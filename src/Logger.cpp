@@ -66,3 +66,8 @@ void Logger::log_warning(std::string input, int timestep)
 {
     log_warning("[timestep=" + std::to_string(timestep) + "] " + input);
 }
+
+void Logger::log_rhcr_event(std::string event)
+{
+    log_info("[RHCR_EVENT] " + event);
+}

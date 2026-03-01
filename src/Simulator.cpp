@@ -20,6 +20,10 @@ vector<State> Simulator::move(vector<Action>& actions)
 
     if (!model->is_valid(curr_states, actions,timestep))
     {
+#ifdef ENABLE_RHCR_LNS
+        // Fallback for RHCR window collisions
+        // logger->log_rhcr_event("Invalid moves detected during execution, RHCR fallback triggered at timestep " + std::to_string(timestep));
+#endif
         //move_valid = false;
         all_valid = false;
         actions = std::vector<Action>(num_of_agents, Action::W);

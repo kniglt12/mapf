@@ -23,6 +23,9 @@ IF(NOT CMAKE_BUILD_TYPE)
     #SET(CMAKE_BUILD_TYPE "MINSIZEREL")
 ENDIF()
 
+# Enable RHCR and ALNS optimizations
+ADD_DEFINITIONS(-DENABLE_RHCR_LNS=1)
+
 include_directories("inc")
 
 # default planner

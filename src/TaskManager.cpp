@@ -206,6 +206,13 @@ void TaskManager::reveal_tasks(int timestep)
 void TaskManager::update_tasks(vector<State>& states, vector<int>& assignment, int timestep)
 {
     curr_timestep = timestep;
+
+#ifdef ENABLE_RHCR_LNS
+    // if (timestep % 10 == 0) {
+    //     logger->log_info("TaskManager: Triggering ALNS batch update at timestep " + std::to_string(timestep));
+    // }
+#endif
+
     set_task_assignment(assignment);
     check_finished_tasks(states,timestep);
     reveal_tasks(timestep);

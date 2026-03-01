@@ -7,6 +7,7 @@
 namespace DefaultPlanner{
 int get_d(int diff, const SharedEnvironment* env)  ;
 
+bool is_in_rhcr_window(int current_timestep, int target_timestep, int window_size);
 
 bool validateMove(int loc, int loc2, const SharedEnvironment* env);
 

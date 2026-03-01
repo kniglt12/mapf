@@ -10,6 +10,10 @@ int get_d(int diff, const SharedEnvironment* env)  {
 
 }
 
+bool is_in_rhcr_window(int current_timestep, int target_timestep, int window_size) {
+    return (target_timestep >= current_timestep) && (target_timestep <= current_timestep + window_size);
+}
+
 bool validateMove(int loc, int loc2, const SharedEnvironment* env)
 {
     int loc_x = loc/env->cols;

@@ -49,6 +49,11 @@ bool causalPIBT(int curr_id, int higher_id,std::vector<State>& prev_states,
 
 		int min_heuristic = get_gp_h(lns, curr_id, neighbor);
 
+        // ALNS randomized tie breaking noise when random heuristic is selected
+        // if (lns.alns.selectHeuristic() == ALNSAdaptiveMechanim::RANDOM) {
+        //     min_heuristic += (rand() % 3);
+        // }
+
 		successors.emplace_back(neighbor,min_heuristic,-1,rand());
 	}
 
